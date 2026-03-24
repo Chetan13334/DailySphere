@@ -1,26 +1,237 @@
 @import "tailwindcss";
 
 :root {
-  --background: #ffffff;
-  --foreground: #171717;
+  color-scheme: light;
+  --background: #f8f9fa;
+  --foreground: #191c1d;
+  --surface-container-highest: #e1e3e4;
+  --inverse-surface: #2e3132;
+  --surface-container-low: #f3f4f5;
+  --surface-container-high: #e7e8e9;
+  --on-tertiary-container: #a88c69;
+  --surface-container-lowest: #ffffff;
+  --secondary: #466270;
+  --on-surface-variant: #44474c;
+  --on-primary-fixed: #0b1d2d;
+  --tertiary-fixed: #feddb5;
+  --on-background: #191c1d;
+  --surface-tint: #4f6073;
+  --on-surface: #191c1d;
+  --secondary-fixed-dim: #adcbda;
+  --surface-bright: #f8f9fa;
+  --tertiary-container: #38260b;
+  --on-tertiary: #ffffff;
+  --inverse-on-surface: #f0f1f2;
+  --on-secondary-fixed: #001f2a;
+  --surface: #f8f9fa;
+  --surface-container: #edeeef;
+  --primary: #041627;
+  --outline: #74777d;
+  --secondary-fixed: #c9e7f7;
+  --on-primary-container: #8192a7;
+  --inverse-primary: #b7c8de;
+  --primary-fixed: #d2e4fb;
+  --on-tertiary-fixed-variant: #584326;
+  --on-secondary-fixed-variant: #2e4b57;
+  --outline-variant: #c4c6cd;
+  --on-error-container: #93000a;
+  --surface-dim: #d9dadb;
+  --tertiary: #211200;
+  --primary-fixed-dim: #b7c8de;
+  --on-primary-fixed-variant: #38485a;
+  --surface-variant: #e1e3e4;
+  --on-error: #ffffff;
+  --on-tertiary-fixed: #281802;
+  --tertiary-fixed-dim: #e1c29b;
+  --on-primary: #ffffff;
+  --on-secondary-container: #4a6774;
+  --secondary-container: #c6e4f4;
+  --on-secondary: #ffffff;
+  --primary-container: #1a2b3c;
+  --error-container: #ffdad6;
+  --error: #ba1a1a;
 }
 
 @theme inline {
   --color-background: var(--background);
   --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
-}
-
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
+  --color-surface-container-highest: var(--surface-container-highest);
+  --color-inverse-surface: var(--inverse-surface);
+  --color-surface-container-low: var(--surface-container-low);
+  --color-surface-container-high: var(--surface-container-high);
+  --color-on-tertiary-container: var(--on-tertiary-container);
+  --color-surface-container-lowest: var(--surface-container-lowest);
+  --color-secondary: var(--secondary);
+  --color-on-surface-variant: var(--on-surface-variant);
+  --color-on-primary-fixed: var(--on-primary-fixed);
+  --color-tertiary-fixed: var(--tertiary-fixed);
+  --color-on-background: var(--on-background);
+  --color-surface-tint: var(--surface-tint);
+  --color-on-surface: var(--on-surface);
+  --color-secondary-fixed-dim: var(--secondary-fixed-dim);
+  --color-surface-bright: var(--surface-bright);
+  --color-tertiary-container: var(--tertiary-container);
+  --color-on-tertiary: var(--on-tertiary);
+  --color-inverse-on-surface: var(--inverse-on-surface);
+  --color-on-secondary-fixed: var(--on-secondary-fixed);
+  --color-surface: var(--surface);
+  --color-surface-container: var(--surface-container);
+  --color-primary: var(--primary);
+  --color-outline: var(--outline);
+  --color-secondary-fixed: var(--secondary-fixed);
+  --color-on-primary-container: var(--on-primary-container);
+  --color-inverse-primary: var(--inverse-primary);
+  --color-primary-fixed: var(--primary-fixed);
+  --color-on-tertiary-fixed-variant: var(--on-tertiary-fixed-variant);
+  --color-on-secondary-fixed-variant: var(--on-secondary-fixed-variant);
+  --color-outline-variant: var(--outline-variant);
+  --color-on-error-container: var(--on-error-container);
+  --color-surface-dim: var(--surface-dim);
+  --color-tertiary: var(--tertiary);
+  --color-primary-fixed-dim: var(--primary-fixed-dim);
+  --color-on-primary-fixed-variant: var(--on-primary-fixed-variant);
+  --color-surface-variant: var(--surface-variant);
+  --color-on-error: var(--on-error);
+  --color-on-tertiary-fixed: var(--on-tertiary-fixed);
+  --color-tertiary-fixed-dim: var(--tertiary-fixed-dim);
+  --color-on-primary: var(--on-primary);
+  --color-on-secondary-container: var(--on-secondary-container);
+  --color-secondary-container: var(--secondary-container);
+  --color-on-secondary: var(--on-secondary);
+  --color-primary-container: var(--primary-container);
+  --color-error-container: var(--error-container);
+  --color-error: var(--error);
+  --font-headline: var(--font-manrope);
+  --font-body: var(--font-inter);
+  --font-label: var(--font-inter);
 }
 
 body {
   background: var(--background);
   color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+  font-family: var(--font-inter), Arial, Helvetica, sans-serif;
+}
+
+.hero-grid {
+  position: absolute;
+  inset: 0;
+  background-image:
+    linear-gradient(rgba(4, 22, 39, 0.03) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(4, 22, 39, 0.03) 1px, transparent 1px);
+  background-size: 64px 64px;
+  mask-image: linear-gradient(to bottom, rgba(0, 0, 0, 0.6), transparent 85%);
+}
+
+.hero-blob {
+  position: absolute;
+  border-radius: 9999px;
+  filter: blur(24px);
+  opacity: 0.55;
+  animation: float 14s ease-in-out infinite;
+}
+
+.hero-blob-a {
+  top: -120px;
+  right: -100px;
+  width: 420px;
+  height: 420px;
+  background: radial-gradient(circle, rgba(199, 231, 247, 0.9), rgba(199, 231, 247, 0.12) 65%, transparent 75%);
+}
+
+.hero-blob-b {
+  top: 220px;
+  left: -160px;
+  width: 360px;
+  height: 360px;
+  background: radial-gradient(circle, rgba(210, 228, 251, 0.85), rgba(210, 228, 251, 0.1) 65%, transparent 75%);
+  animation-delay: -6s;
+}
+
+.material-symbols-outlined {
+  font-variation-settings: "FILL" 0, "wght" 400, "GRAD" 0, "opsz" 24;
+}
+
+.editorial-shadow {
+  box-shadow: 0 20px 40px rgba(25, 28, 29, 0.06);
+}
+
+.glass-panel {
+  background-color: rgba(255, 255, 255, 0.8);
+  backdrop-filter: blur(20px);
+}
+
+.primary-gradient {
+  background: linear-gradient(135deg, #041627 0%, #1a2b3c 100%);
+}
+
+.premium-panel {
+  backdrop-filter: blur(14px);
+}
+
+.animate-fade-up {
+  animation: fadeUp 0.8s ease-out both;
+}
+
+.animate-fade-up-delayed {
+  animation: fadeUp 0.8s ease-out 0.12s both;
+}
+
+.animate-fade-up-delayed-2 {
+  animation: fadeUp 0.8s ease-out 0.24s both;
+}
+
+.animate-fade-up-delayed-3 {
+  animation: fadeUp 0.8s ease-out 0.36s both;
+}
+
+.animate-scale-in {
+  animation: scaleIn 1s cubic-bezier(0.16, 1, 0.3, 1) both;
+}
+
+.card-pop {
+  animation: fadeUp 0.8s ease-out both;
+}
+
+.card-pop.delay-1 {
+  animation-delay: 0.08s;
+}
+
+.card-pop.delay-2 {
+  animation-delay: 0.16s;
+}
+
+.card-pop.delay-3 {
+  animation-delay: 0.24s;
+}
+
+@keyframes fadeUp {
+  from {
+    opacity: 0;
+    transform: translateY(18px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes scaleIn {
+  from {
+    opacity: 0;
+    transform: scale(0.96) translateY(12px);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1) translateY(0);
+  }
+}
+
+@keyframes float {
+  0%,
+  100% {
+    transform: translate3d(0, 0, 0) scale(1);
+  }
+  50% {
+    transform: translate3d(0, -14px, 0) scale(1.04);
+  }
 }
