@@ -22,7 +22,7 @@ const summaryCards = [
   {
     icon: "mail",
     label: "Email Address",
-    value: "alex.rivera@zenith-editorial.com",
+    value: "alex.rivera@DailySphere-editorial.com",
   },
   {
     icon: "location_on",
@@ -90,7 +90,7 @@ export default function Profile() {
               </div>
 
               <h2 className="mb-1 font-headline text-2xl font-bold text-primary">Alex Rivera</h2>
-              <p className="mb-6 text-sm font-medium text-on-surface-variant">Product Lead @ Zenith</p>
+              <p className="mb-6 text-sm font-medium text-on-surface-variant">Product Lead @ DailySphere</p>
 
               <div className="w-full space-y-3 border-t border-outline-variant/10 pt-6">
                 <button

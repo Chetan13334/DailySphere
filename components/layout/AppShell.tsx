@@ -40,7 +40,7 @@ export default function AppShell({
             >
               <span className="material-symbols-outlined">menu</span>
             </button>
-            <span className="font-headline text-lg font-bold tracking-tighter text-[#041627]">Zenith Dashboard</span>
+            <span className="font-headline text-lg font-bold tracking-tighter text-[#041627]">DailySphere</span>
             <div className="w-10" />
           </div>
         </div>

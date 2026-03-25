@@ -44,7 +44,7 @@ export default function Settings() {
                 <div className="flex flex-col gap-4 lg:flex-row lg:items-center lg:justify-between">
                   <div className="max-w-xl">
                     <p className="font-semibold text-on-surface">Interface Theme</p>
-                    <p className="text-sm text-on-surface-variant">Customize how Zenith looks on your device.</p>
+                    <p className="text-sm text-on-surface-variant">Customize how DailySphere looks on your device.</p>
                   </div>
                   <div className="flex flex-wrap gap-1 rounded-xl bg-surface-container-low p-1">
                     <button className="flex items-center gap-2 rounded-lg bg-white px-3 py-2 text-sm font-medium text-primary shadow-sm sm:px-4">

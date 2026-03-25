@@ -35,7 +35,7 @@ export default function Header({ active = "currency", onMenuClick }: HeaderProps
             <span className="material-symbols-outlined">menu</span>
           </button>
           <Link href={ROUTES.dashboard} className="font-headline text-xl font-bold tracking-tighter text-[#041627] sm:text-2xl">
-            Zenith Dashboard
+            DailySphere
           </Link>
         </div>
 

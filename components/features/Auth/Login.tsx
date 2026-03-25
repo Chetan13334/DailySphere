@@ -42,7 +42,7 @@ const Login = () => {
         <div className="w-full max-w-[440px] z-10">
           <motion.div className="mb-10 text-center" variants={fadeUp}>
             <Link href={ROUTES.dashboard} className="font-headline mb-2 text-4xl font-extrabold tracking-tighter text-primary">
-              Zenith Dashboard
+              DailySphere
             </Link>
             <p className="text-sm tracking-tight text-on-surface-variant">
               Enter your credentials to access your editorial workspace.
@@ -66,7 +66,7 @@ const Login = () => {
                     className="w-full rounded-lg border border-[rgba(196,198,205,0.15)] bg-white py-3 pl-11 pr-4 text-on-surface outline-none transition-all duration-200 placeholder:text-outline/50 focus:border-primary-fixed-dim focus:ring-4 focus:ring-primary-fixed/20"
                     id="email"
                     name="email"
-                    placeholder="alex.rivera@zenith.com"
+                    placeholder="alex.rivera@DailySphere.com"
                     required
                     type="email"
                   />
@@ -153,7 +153,7 @@ const Login = () => {
               <p className="text-sm text-on-surface-variant">
                 Don't have an account?
                 <Link href={ROUTES.register} className="ml-1 font-semibold text-primary transition-all hover:underline underline-offset-4 decoration-2">
-                Sign up for Zenith
+                Sign up for DailySphere
                 </Link>
               </p>
             </motion.div>
@@ -163,7 +163,7 @@ const Login = () => {
       <footer className="w-full border-t border-outline-variant/15 bg-surface-container-lowest">
         <div className="mx-auto flex w-full max-w-7xl flex-col items-center justify-between gap-6 px-12 py-8 md:flex-row">
           <p className="font-label text-[10px] uppercase tracking-[0.2em] text-on-surface-variant">
-            {"\u00A9"} 2024 Zenith Editorial Dashboard. All rights reserved.
+            {"\u00A9"} 2024 DailySphere Editorial Dashboard. All rights reserved.
           </p>
           <div className="flex gap-8">
             <a className="font-label text-[10px] uppercase tracking-[0.2em] text-on-surface-variant transition-colors hover:text-primary" href="#">

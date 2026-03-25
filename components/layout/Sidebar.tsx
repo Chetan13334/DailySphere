@@ -37,7 +37,7 @@ export default function Sidebar({ active, variant = "default", onNavigate }: Sid
       {variant === "drawer" ? (
         <div className="flex items-center justify-between border-b border-outline-variant/10 pb-4">
           <div>
-            <p className="font-['Manrope'] text-lg font-bold text-[#041627]">Zenith Dashboard</p>
+            <p className="font-['Manrope'] text-lg font-bold text-[#041627]">DailySphere</p>
             <p className="font-['Inter'] text-xs font-medium text-on-surface-variant">Navigation</p>
           </div>
           <button type="button" className="rounded-lg p-2 text-[#44474c] hover:bg-white/70" aria-label="Close menu" onClick={onNavigate}>
