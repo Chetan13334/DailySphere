@@ -11,8 +11,6 @@ const SIDEBAR_ITEMS = [
   { key: "currency", label: "Currency", icon: "currency_exchange", href: ROUTES.currency },
   { key: "holidays", label: "Holidays", icon: "schedule", href: ROUTES.holidays },
   { key: "reminders", label: "Reminders", icon: "inventory_2", href: ROUTES.reminders },
-  { key: "profile", label: "Profile", icon: "account_circle", href: ROUTES.profile },
-  { key: "settings", label: "Settings", icon: "settings", href: ROUTES.settings },
 ] as const;
 
 type SidebarActive = (typeof SIDEBAR_ITEMS)[number]["key"];
