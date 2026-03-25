@@ -6,8 +6,8 @@ import Sidebar from "./Sidebar";
 
 type AppShellProps = {
   children: ReactNode;
-  headerActive: "dashboard" | "weather" | "holidays" | "currency" | "reminders";
-  sidebarActive?: "overview" | "weather" | "currency" | "holidays" | "reminders";
+  headerActive: "dashboard" | "weather" | "holidays" | "currency" | "reminders" | "profile";
+  sidebarActive?: "overview" | "weather" | "currency" | "holidays" | "reminders" | "profile";
 };
 
 export default function AppShell({ children, headerActive, sidebarActive }: AppShellProps) {

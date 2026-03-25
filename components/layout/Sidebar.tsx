@@ -6,11 +6,12 @@ import { usePathname } from "next/navigation";
 import { ROUTES } from "@/lib/constants";
 
 const SIDEBAR_ITEMS = [
-  { key: "overview", label: "Overview", icon: "dashboard", href: ROUTES.home },
+  { key: "overview", label: "Overview", icon: "dashboard", href: ROUTES.dashboard },
   { key: "weather", label: "Weather", icon: "insights", href: ROUTES.weather },
   { key: "currency", label: "Currency", icon: "currency_exchange", href: ROUTES.currency },
   { key: "holidays", label: "Holidays", icon: "schedule", href: ROUTES.holidays },
   { key: "reminders", label: "Reminders", icon: "inventory_2", href: ROUTES.reminders },
+  { key: "profile", label: "Profile", icon: "account_circle", href: ROUTES.profile },
 ] as const;
 
 type SidebarActive = (typeof SIDEBAR_ITEMS)[number]["key"];

@@ -5,6 +5,7 @@ export const ROUTES = {
   holidays: "/holidays",
   currency: "/currency",
   reminders: "/reminders",
+  profile: "/profile",
   login: "/login",
   register: "/register",
   getStarted: "/register",

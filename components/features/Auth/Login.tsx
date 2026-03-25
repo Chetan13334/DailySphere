@@ -23,7 +23,7 @@ const Login = () => {
 
   const handleSubmit = (event: React.FormEvent<HTMLFormElement>) => {
     event.preventDefault();
-    router.push(ROUTES.home);
+    router.push(ROUTES.dashboard);
   };
 
   return (
@@ -41,7 +41,7 @@ const Login = () => {
 
         <div className="w-full max-w-[440px] z-10">
           <motion.div className="mb-10 text-center" variants={fadeUp}>
-            <Link href={ROUTES.home} className="font-headline mb-2 text-4xl font-extrabold tracking-tighter text-primary">
+            <Link href={ROUTES.dashboard} className="font-headline mb-2 text-4xl font-extrabold tracking-tighter text-primary">
               DailySphere
             </Link>
             <p className="text-sm tracking-tight text-on-surface-variant">
