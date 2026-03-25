@@ -25,7 +25,7 @@ export default function Header({ active = "currency" }: HeaderProps) {
     <header className="sticky top-0 z-50 border-none bg-[#f8f9fa]">
       <div className="mx-auto flex w-full max-w-[1440px] items-center justify-between px-8 py-4">
         <Link href={ROUTES.home} className="font-headline text-2xl font-bold tracking-tighter text-[#041627]">
-          Zenith Dashboard
+          DailySphere
         </Link>
 
         <nav className="hidden items-center gap-8 md:flex">

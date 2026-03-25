@@ -42,7 +42,7 @@ const Login = () => {
         <div className="w-full max-w-[440px] z-10">
           <motion.div className="mb-10 text-center" variants={fadeUp}>
             <Link href={ROUTES.home} className="font-headline mb-2 text-4xl font-extrabold tracking-tighter text-primary">
-              Zenith Dashboard
+              DailySphere
             </Link>
             <p className="text-sm tracking-tight text-on-surface-variant">
               Enter your credentials to access your editorial workspace.

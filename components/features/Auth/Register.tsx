@@ -35,7 +35,7 @@ const Register = () => {
         <div className="w-full max-w-[480px] space-y-8">
           <motion.div className="text-center lg:text-left lg:pl-4" variants={fadeUp}>
             <Link href={ROUTES.home} className="font-headline text-3xl font-extrabold tracking-tighter text-primary">
-              Zenith Dashboard
+              DailySphere
             </Link>
             <p className="mt-2 font-medium text-on-surface-variant">Create your editorial workspace</p>
           </motion.div>
