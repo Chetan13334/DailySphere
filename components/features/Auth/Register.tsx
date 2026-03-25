@@ -35,7 +35,7 @@ const Register = () => {
         <div className="w-full max-w-[480px] space-y-8">
           <motion.div className="text-center lg:text-left lg:pl-4" variants={fadeUp}>
             <Link href={ROUTES.dashboard} className="font-headline text-3xl font-extrabold tracking-tighter text-primary">
-              DailySphere
+              Zenith Dashboard
             </Link>
             <p className="mt-2 font-medium text-on-surface-variant">Create your editorial workspace</p>
           </motion.div>
@@ -96,7 +96,7 @@ const Register = () => {
                   </label>
                   <input
                     className="w-full rounded-lg border border-[rgba(196,198,205,0.15)] bg-white px-4 py-3 text-sm outline-none transition-all placeholder:text-outline/50 focus:border-primary-fixed-dim focus:ring-4 focus:ring-primary-fixed/20"
-                    placeholder="alex@DailySphere.com"
+                    placeholder="alex@zenith.com"
                     type="email"
                   />
                 </div>
@@ -188,7 +188,7 @@ const Register = () => {
       <footer className="mt-auto w-full border-t border-outline-variant/15 bg-surface-container-lowest py-8">
         <div className="mx-auto flex w-full max-w-7xl flex-col items-center justify-between gap-6 px-12 md:flex-row">
           <p className="font-label text-[10px] uppercase tracking-[0.2em] text-on-surface-variant">
-            {"\u00A9"} 2024 DailySphere Editorial Dashboard. All rights reserved.
+            {"\u00A9"} 2024 Zenith Editorial Dashboard. All rights reserved.
           </p>
           <div className="flex gap-8">
             <a className="font-label text-[10px] uppercase tracking-[0.2em] text-on-surface-variant transition-colors hover:text-primary" href="#">

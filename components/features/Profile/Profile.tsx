@@ -22,7 +22,7 @@ const summaryCards = [
   {
     icon: "mail",
     label: "Email Address",
-    value: "alex.rivera@DailySphere-editorial.com",
+    value: "alex.rivera@zenith-editorial.com",
   },
   {
     icon: "location_on",
@@ -60,14 +60,16 @@ const settingsCards = [
 export default function Profile() {
   return (
     <AppShell headerActive="profile" sidebarActive="profile">
-      <motion.div className="mx-auto max-w-4xl" initial="hidden" animate="show" variants={container}>
-        <motion.header className="mb-12" variants={fadeUp}>
-          <h1 className="mb-2 font-headline text-5xl font-extrabold tracking-tight text-primary">Profile Settings</h1>
-          <p className="text-lg text-on-surface-variant">Manage your personal identity and workspace preferences.</p>
+      <motion.div className="mx-auto w-full max-w-7xl" initial="hidden" animate="show" variants={container}>
+        <motion.header className="mb-8 sm:mb-12" variants={fadeUp}>
+          <h1 className="mb-2 font-headline text-3xl font-extrabold tracking-tight text-primary sm:text-4xl lg:text-5xl">
+            Profile Settings
+          </h1>
+          <p className="text-base text-on-surface-variant sm:text-lg">Manage your personal identity and workspace preferences.</p>
         </motion.header>
 
-        <div className="grid grid-cols-1 gap-8 md:grid-cols-3">
-          <motion.section className="md:col-span-1" variants={fadeUp}>
+        <div className="grid grid-cols-1 gap-6 xl:grid-cols-12 xl:gap-8">
+          <motion.section className="xl:col-span-4" variants={fadeUp}>
             <div className="flex flex-col items-center rounded-2xl border border-outline-variant/10 bg-surface-container-lowest p-8 text-center shadow-sm">
               <div className="group relative mb-6">
                 <div className="h-32 w-32 overflow-hidden rounded-full border-4 border-surface-container-high shadow-lg">
@@ -88,7 +90,7 @@ export default function Profile() {
               </div>
 
               <h2 className="mb-1 font-headline text-2xl font-bold text-primary">Alex Rivera</h2>
-              <p className="mb-6 text-sm font-medium text-on-surface-variant">Product Lead @ DailySphere</p>
+              <p className="mb-6 text-sm font-medium text-on-surface-variant">Product Lead @ Zenith</p>
 
               <div className="w-full space-y-3 border-t border-outline-variant/10 pt-6">
                 <button
@@ -107,7 +109,7 @@ export default function Profile() {
             </div>
           </motion.section>
 
-          <motion.section className="space-y-6 md:col-span-2" variants={fadeUp}>
+          <motion.section className="space-y-6 xl:col-span-8" variants={fadeUp}>
             <div className="grid grid-cols-1 gap-4 sm:grid-cols-2">
               {summaryCards.map((card) => (
                 <div
@@ -149,7 +151,7 @@ export default function Profile() {
               </div>
             </div>
 
-            <div className="glass-panel rounded-3xl border border-outline-variant/10 p-8">
+            <div className="glass-panel rounded-3xl border border-outline-variant/10 p-5 sm:p-8">
               <h3 className="mb-6 font-headline text-xl font-bold text-primary">Interface Preferences</h3>
               <div className="flex items-center justify-between border-b border-outline-variant/10 py-4">
                 <div>

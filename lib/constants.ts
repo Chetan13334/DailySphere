@@ -6,6 +6,7 @@ export const ROUTES = {
   currency: "/currency",
   reminders: "/reminders",
   profile: "/profile",
+  settings: "/settings",
   login: "/login",
   register: "/register",
   getStarted: "/register",

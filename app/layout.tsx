@@ -13,7 +13,7 @@ const inter = Inter({
 });
 
 export const metadata: Metadata = {
-  title: "DailySphere",
+  title: "Zenith Dashboard",
   description: "Editorial dashboard home screen",
 };
 
