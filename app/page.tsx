@@ -1,5 +1,5 @@
-import ZenithDashboard from "./Pages/Dashbord/Dashbord";
+import Main from "@/components/features/Main/Main";
 
 export default function Home() {
-  return <ZenithDashboard />;
+  return <Main />;
 }

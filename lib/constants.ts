@@ -6,7 +6,8 @@ export const ROUTES = {
   currency: "/currency",
   reminders: "/reminders",
   login: "/login",
-  getStarted: "/get-started",
+  register: "/register",
+  getStarted: "/register",
 } as const;
 
 export type RoutePath = (typeof ROUTES)[keyof typeof ROUTES];
