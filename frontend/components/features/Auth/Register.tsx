@@ -53,7 +53,7 @@ const Register = () => {
         setError(result.error);
       } else {
         setSuccess("Account created! Redirecting to login...");
-        setTimeout(() => router.push(ROUTES.login), 2000);
+        setTimeout(() => router.push(ROUTES.login), 1200);
       }
     } catch (err: any) {
       setError(err.message || "Something went wrong");
@@ -153,7 +153,7 @@ const Register = () => {
                   </label>
                   <input
                     className="w-full rounded-lg border border-[rgba(196,198,205,0.15)] bg-white px-4 py-3 text-sm outline-none transition-all placeholder:text-outline/50 focus:border-primary-fixed-dim focus:ring-4 focus:ring-primary-fixed/20"
-                    placeholder="alex@DailySphere.com"
+                    placeholder="alex@dailysphere.com"
                     name="email"
                     value={formData.email}
                     onChange={handleChange}

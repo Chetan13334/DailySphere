@@ -2,6 +2,7 @@
 
 import Link from "next/link";
 import { useRouter } from "next/navigation";
+import { useSearchParams } from "next/navigation";
 import { motion } from "framer-motion";
 import { useState } from "react";
 import { ROUTES } from "@/lib/constants";
@@ -21,10 +22,12 @@ const container = {
 
 const Login = () => {
   const router = useRouter();
+  const searchParams = useSearchParams();
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState("");
+  const returnTo = searchParams.get("from") || ROUTES.dashboard;
 
   const handleSubmit = async (event: React.FormEvent<HTMLFormElement>) => {
     event.preventDefault();
@@ -36,7 +39,7 @@ const Login = () => {
       if (result.error) {
         setError(result.error);
       } else {
-        router.push(ROUTES.dashboard);
+        router.push(returnTo);
       }
     } catch (err: any) {
       setError(err.message || "Something went wrong");
@@ -85,7 +88,7 @@ const Login = () => {
                     className="w-full rounded-lg border border-[rgba(196,198,205,0.15)] bg-white py-3 pl-11 pr-4 text-on-surface outline-none transition-all duration-200 placeholder:text-outline/50 focus:border-primary-fixed-dim focus:ring-4 focus:ring-primary-fixed/20"
                     id="email"
                     name="email"
-                    placeholder="alex.rivera@DailySphere.com"
+                    placeholder="alex.rivera@dailysphere.com"
                     value={email}
                     onChange={(e) => setEmail(e.target.value)}
                     required

@@ -1,8 +1,9 @@
 "use client";
 
 import { motion } from "framer-motion";
-
+import { useEffect, useState } from "react";
 import AppShell from "@/components/layout/AppShell";
+import { authService, User } from "@/lib/services/auth.service";
 
 const fadeUp = {
   hidden: { opacity: 0, y: 18 },
@@ -24,6 +25,44 @@ const cardHover = {
 };
 
 const Main = () => {
+  const [user, setUser] = useState<User | null>(null);
+  const [greeting, setGreeting] = useState("");
+  const [currentDate, setCurrentDate] = useState("");
+
+  useEffect(() => {
+    // Fetch user
+    const fetchUser = async () => {
+      const currentUser = await authService.getCurrentUser();
+      setUser(currentUser);
+    };
+    fetchUser();
+
+    // Set greeting
+    const hour = new Date().getHours();
+    if (hour >= 5 && hour < 12) setGreeting("Good morning");
+    else if (hour >= 12 && hour < 17) setGreeting("Good afternoon");
+    else if (hour >= 17 && hour < 21) setGreeting("Good evening");
+    else setGreeting("Good night");
+
+    // Set date
+    const options: Intl.DateTimeFormatOptions = { 
+      weekday: 'long', 
+      month: 'short', 
+      day: 'numeric' 
+    };
+    const now = new Date();
+    const dateStr = now.toLocaleDateString('en-US', options);
+    
+    // Add ordinal suffix (st, nd, rd, th)
+    const day = now.getDate();
+    let suffix = "th";
+    if (day % 10 === 1 && day !== 11) suffix = "st";
+    else if (day % 10 === 2 && day !== 12) suffix = "nd";
+    else if (day % 10 === 3 && day !== 13) suffix = "rd";
+    
+    setCurrentDate(`Today is ${dateStr}${suffix}.`);
+  }, []);
+
   return (
     <AppShell headerActive="dashboard" sidebarActive="overview">
       <motion.div className="relative" initial="hidden" animate="show" variants={container}>
@@ -37,9 +76,9 @@ const Main = () => {
           <div className="flex flex-col justify-between gap-6 md:flex-row md:items-end">
             <div>
               <h1 className="mb-2 font-headline text-5xl font-extrabold tracking-tight text-primary">
-                Good morning, Alex Rivera!
+                {greeting}, {user?.full_name?.split(" ")[0] || "Guest"}!
               </h1>
-              <p className="text-lg text-on-surface-variant">Today is Tuesday, Oct 24th.</p>
+              <p className="text-lg text-on-surface-variant">{currentDate}</p>
             </div>
             <button className="inline-flex items-center gap-2 rounded-xl bg-gradient-to-br from-primary to-primary-container px-6 py-3 font-semibold text-on-primary shadow-lg transition-all active:scale-95">
               <span className="material-symbols-outlined text-sm">add</span>

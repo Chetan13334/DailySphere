@@ -7,18 +7,36 @@ const supabase = createClient(
 );
 
 async function test() {
-  console.log('Testing Supabase connection...');
-  console.log('URL:', process.env.SUPABASE_URL);
+  const userId = '997eb1b4-a542-4b6c-9de7-359fed743b34'; // Use the user's ID
+  
+  console.log('Testing real update with new Date()...');
+  const details = { job_title: 'Test Job' };
   
   try {
-    const { data, error } = await supabase.from('Users').select('*').limit(1);
+    const { error } = await supabase
+      .from('UserDetails')
+      .update({ ...details, updated_at: new Date() })
+      .eq('user_id', userId);
+    
     if (error) {
-      console.error('Error fetching from Users table:', error);
+       console.error('Update with new Date() Failed:', error.message);
     } else {
-      console.log('Success! Data:', data);
+       console.log('Update with new Date() Passed!');
     }
+
+    const { error: errorIso } = await supabase
+      .from('UserDetails')
+      .update({ ...details, updated_at: new Date().toISOString() })
+      .eq('user_id', userId);
+    
+    if (errorIso) {
+       console.error('Update with ISO String Failed:', errorIso.message);
+    } else {
+       console.log('Update with ISO String Passed!');
+    }
+
   } catch (err) {
-    console.error('Unexpected error:', err);
+    console.error('Catch error:', err.message);
   }
 }
 

@@ -1,6 +1,9 @@
-import Link from "next/link";
+"use client";
 
+import Link from "next/link";
+import { useEffect, useState } from "react";
 import { ROUTES } from "@/lib/constants";
+import { authService, ProfileDetails } from "@/lib/services/auth.service";
 
 type HeaderActive = "dashboard" | "weather" | "holidays" | "currency" | "reminders" | "profile" | "settings";
 
@@ -22,6 +25,28 @@ type HeaderProps = {
 };
 
 export default function Header({ active = "currency", onMenuClick }: HeaderProps) {
+  const [profile, setProfile] = useState<ProfileDetails | null>(null);
+
+  useEffect(() => {
+    const fetchProfile = async () => {
+      const data = await authService.getProfileDetails();
+      setProfile(data);
+    };
+    fetchProfile();
+  }, []);
+
+  const getInitials = (name: string) => {
+    if (!name) return "";
+    const parts = name.trim().split(" ");
+    if (parts.length === 1) return parts[0].charAt(0).toUpperCase();
+    const firstInitial = parts[0].charAt(0).toUpperCase();
+    const lastInitial = parts[parts.length - 1].charAt(0).toUpperCase();
+    return firstInitial + lastInitial;
+  };
+
+  const initials = profile?.full_name ? getInitials(profile.full_name) : "";
+  const avatarUrl = profile?.details?.avatar_url;
+
   return (
     <header className="sticky top-0 z-50 border-none bg-[#f8f9fa]">
       <div className="mx-auto flex w-full max-w-[1440px] items-center justify-between px-4 py-3 sm:px-6 lg:px-8 lg:py-4">
@@ -75,13 +100,14 @@ export default function Header({ active = "currency", onMenuClick }: HeaderProps
             <span className="material-symbols-outlined">settings</span>
           </Link>
           <Link href={ROUTES.profile} className="flex items-center gap-2 border-l border-[#c4c6cd]/15 pl-2 transition-colors hover:text-[#041627] sm:gap-3 sm:pl-4">
-            <span className="hidden text-sm font-medium text-[#041627] sm:block">Profile</span>
-            <img
-              alt="User profile avatar"
-              className="h-8 w-8 rounded-full border border-outline-variant/15 object-cover"
-              data-alt="professional headshot of a smiling man in a creative studio with warm lighting and soft background bokeh"
-              src="https://lh3.googleusercontent.com/aida-public/AB6AXuB41a9UZGs-P-FyTfrhabKnx1bXxeq5POwya0KmKz6l8gEJh7-Bxr6tOs1CCt5lnwDVJieEvo0ia6E9HzpcAyXoizCQZX3xXA7YN3rNwxa6ffNCscHa7E-44Far2uyZZgalYscp4d0wkSV_exjd1E0nYVbH7Lt-dx01cW7AFxOZY5YUXgi4QZTuwc5FoMTkLrYm0p96wWkfg9URMe1SgSfEN2YOfb2SZD8xCFTIKi6iVskDgL2-_ogyC_PC67DZ4EWbHtxXvlis8A"
-            />
+            <span className="hidden text-sm font-medium text-[#041627] sm:block">{profile?.full_name || "Profile"}</span>
+            <div className="flex h-8 w-8 items-center justify-center overflow-hidden rounded-full border border-outline-variant/15 bg-primary-container text-[10px] font-bold text-primary shadow-sm transition-all hover:shadow-md">
+              {avatarUrl ? (
+                <img src={avatarUrl} alt="Avatar" className="h-full w-full object-cover" />
+              ) : (
+                initials || <span className="material-symbols-outlined text-sm">person</span>
+              )}
+            </div>
           </Link>
         </div>
       </div>

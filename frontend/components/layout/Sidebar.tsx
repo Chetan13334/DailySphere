@@ -2,8 +2,11 @@
 
 import Link from "next/link";
 import { usePathname } from "next/navigation";
+import { useRouter } from "next/navigation";
+import { useEffect, useState } from "react";
 
 import { ROUTES } from "@/lib/constants";
+import { authService, User } from "@/lib/services/auth.service";
 
 const SIDEBAR_ITEMS = [
   { key: "overview", label: "Overview", icon: "dashboard", href: ROUTES.dashboard },
@@ -24,8 +27,18 @@ type SidebarProps = {
 };
 
 export default function Sidebar({ active, variant = "default", onNavigate }: SidebarProps) {
+  const router = useRouter();
   const pathname = usePathname();
   const currentKey = active ?? SIDEBAR_ITEMS.find((item) => item.href === pathname)?.key ?? "overview";
+  const [user, setUser] = useState<User | null>(null);
+
+  useEffect(() => {
+    const fetchUser = async () => {
+      const currentUser = await authService.getCurrentUser();
+      setUser(currentUser);
+    };
+    fetchUser();
+  }, []);
 
   const asideClass =
     variant === "standalone"
@@ -48,8 +61,8 @@ export default function Sidebar({ active, variant = "default", onNavigate }: Sid
         </div>
       ) : (
         <div className="flex flex-col gap-1 px-2">
-          <p className="font-['Manrope'] text-lg font-bold text-[#041627]">Alex Rivera</p>
-          <p className="font-['Inter'] text-xs font-medium text-on-surface-variant">Premium Plan</p>
+          <p className="font-['Manrope'] text-lg font-bold text-[#041627]">{user?.full_name || "Guest"}</p>
+          <p className="font-['Inter'] text-xs font-medium text-on-surface-variant">Standard Plan</p>
         </div>
       )}
 
@@ -80,10 +93,18 @@ export default function Sidebar({ active, variant = "default", onNavigate }: Sid
           <span className="material-symbols-outlined">help</span>
           Support
         </Link>
-        <Link href={ROUTES.login} className="flex items-center gap-3 rounded-xl px-4 py-3 text-[#44474c] font-['Inter'] text-sm font-medium" onClick={onNavigate}>
+        <button
+          type="button"
+          className="flex items-center gap-3 rounded-xl px-4 py-3 text-left text-[#44474c] font-['Inter'] text-sm font-medium transition-colors hover:bg-white/50"
+          onClick={async () => {
+            await authService.logout();
+            onNavigate?.();
+            router.push(ROUTES.login);
+          }}
+        >
           <span className="material-symbols-outlined">logout</span>
           Logout
-        </Link>
+        </button>
       </div>
     </aside>
   );
